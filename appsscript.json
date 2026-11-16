@@ -1,0 +1,15 @@
+{
+  "timeZone": "Etc/UTC",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/spreadsheets.currentonly",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.container.ui"
+  ],
+  "urlFetchWhitelist": [
+    "https://mcp.puckapi.com/", "https://mcp.endzoneapi.com/", "https://mcp.dunkapi.com/", "https://mcp.strikerapi.com/",
+    "https://mcp.fastballapi.com/", "https://mcp.acesapi.com/", "https://mcp.birdieapi.com/", "https://mcp.fighterapi.com/",
+    "https://mcp.yorkerapi.com/"
+  ]
+}

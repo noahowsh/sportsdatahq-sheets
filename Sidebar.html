@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; padding: 12px; color: #202124; }
+  label { display: block; margin-top: 10px; font-weight: bold; }
+  input { width: 100%; box-sizing: border-box; padding: 6px; margin-top: 4px; }
+  button { margin-top: 12px; padding: 7px 12px; }
+  .saved { color: #188038; font-weight: normal; }
+  p { color: #5f6368; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <p>Paste a key for each brand you use. Keys are stored for your Google account only and never written into the sheet. Free keys (500 credits a month, no card) at each brand's site, e.g. dunkapi.com/signup.</p>
+  <select id="brand">
+    <option>puckapi</option><option>endzoneapi</option><option>dunkapi</option><option>strikerapi</option>
+    <option>fastballapi</option><option>acesapi</option><option>birdieapi</option><option>fighterapi</option><option>yorkerapi</option>
+  </select>
+  <label>API key <input id="key" type="password" autocomplete="off"></label>
+  <button onclick="save()">Save key</button>
+  <div id="status"></div>
+  <p>Then try <code>=SDHQ("dunkapi","get_standings")</code> or list tools with <code>=SDHQ_TOOLS("dunkapi")</code>.</p>
+<script>
+  function render(list) {
+    document.getElementById("status").innerHTML = list.map(function (k) {
+      return "<div>" + k.brand + ": " + (k.saved ? "<span class='saved'>key saved</span>" : "no key") + "</div>";
+    }).join("");
+  }
+  function save() {
+    var brand = document.getElementById("brand").value, key = document.getElementById("key").value;
+    google.script.run.withSuccessHandler(function (l) { document.getElementById("key").value = ""; render(l); }).saveKey(brand, key);
+  }
+  google.script.run.withSuccessHandler(render).listKeys();
+</script>
+</body>
+</html>
