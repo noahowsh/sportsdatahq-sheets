@@ -12,6 +12,10 @@ Live sports data in a spreadsheet: NHL, NFL, NBA, soccer, MLB, tennis, golf, UFC
 
 Each formula returns a table: a header row, then one row per record. Nested fields become `parent.child` columns.
 
+## Get it
+
+**[Make a copy of the template sheet](https://docs.google.com/spreadsheets/d/14dPA_UrSRlbmQsvvsMGCLiXQ_9V-3Hur-MPjRWd7gqk/copy)**: the script comes with the copy. On first use Google asks you to allow it (the add-on is not yet verified by Google, so choose Advanced, then continue); it only reads the sheet you are in and calls the SportsDataHQ APIs.
+
 ## Setup
 
 1. Get a free key for the brand you want (500 credits a month, no card): e.g. https://dunkapi.com/signup.
